@@ -14,7 +14,7 @@ class DishType(models.Model):
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField()
+    years_of_experience = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ["username"]
@@ -27,15 +27,17 @@ class Dish(models.Model):
     dish_type = models.ForeignKey(
         to=DishType,
         on_delete=models.CASCADE,
-        related_name="dishes"
+        related_name="dishes",
     )
     cooks = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        related_name="dishes"
+        related_name="dishes",
+        blank=True
     )
 
     class Meta:
         ordering = ["name"]
+        verbose_name_plural = "dishes"
 
     def __str__(self):
         return f"{self.name} (price: {self.price}, type: {self.dish_type.name})"
