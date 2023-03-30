@@ -1,9 +1,22 @@
 from django import forms
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from kitchen.models import Cook, Dish
 
-from kitchen.models import Cook
 
-
-class CookForm(forms.ModelForm):
-    class Meta:
+class CookCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = Cook
-        fields = ["username", "password"]
+        fields = UserCreationForm.Meta.fields + ("years_of_experience",)
+
+
+class DishForm(forms.ModelForm):
+    cooks = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = Dish
+        fields = "__all__"
