@@ -4,14 +4,14 @@
 {% block content %}
   <h1>
     Dish list
-    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
-      Create
+    <a style="float:right" href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
+      +
     </a>
   </h1>
 
   <form action="" method="get">
     {{ search_form|crispy }}
-    <input type="submit" value="Search">
+    <input type="submit" value="Search" class="btn btn-primary">
   </form>
 
   <br>

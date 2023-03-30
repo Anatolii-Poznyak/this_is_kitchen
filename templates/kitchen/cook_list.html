@@ -5,25 +5,25 @@
 {% block content %}
     <h1>
       Cook List
-    <a href="{% url 'kitchen:cook-create' %}">Create</a>
+    <a style="float:right" class="btn btn-primary"  href="{% url 'kitchen:cook-create' %}">+</a>
     </h1>
 
     {% if cook_list %}
     <table class="table">
       <tr>
         <th>ID</th>
+        <th>Full Name</th>
         <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
         <th>Years of experience</th>
+        <th>Last login</th>
       </tr>
     {% for cook in cook_list %}
       <tr>
         <td>{{ cook.id }}</td>
-        <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
-        <td>{{ cook.first_name }}</td>
-        <td>{{ cook.last_name }}</td>
-        <td>{{ cook.years_of_experience }}</td>
+        <td><a href="{{ cook.get_absolute_url }}">{{ cook.first_name }} {{ cook.last_name }} {% if user == cook %} (Me){% endif %}</a></td>
+        <td>{{ cook.username }}</td>
+        <td>{{ cook.years_of_experience|default_if_none:"" }}</td>
+        <td>{{ cook.last_login }}</td>
       </tr>
     {% endfor %}
 
