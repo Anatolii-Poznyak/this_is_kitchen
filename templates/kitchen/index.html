@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title TEST</title>
-  <h1>TEST</h1>
-</head>
-<body>
-<h3>My content:</h3>
-<ul>
-  <li>{{ num_cooks }}</li>
-  <li>{{ num_dish_types }}</li>
-  <li>{{ num_dishes }}</li>
+{% extends "base.html" %}
 
-</ul>
-</body>
-</html>
+{% block content %}
+  <h1>Kitchen Home Page</h1>
+  <h3>My content:</h3>
+   <ul>
+     <li>{{ num_cooks }}</li>
+     <li>{{ num_dish_types }}</li>
+     <li>{{ num_dishes }}</li>
+   </ul>
+{% endblock %}
