@@ -3,13 +3,13 @@ from django.urls import path
 from kitchen.views import (index,
                            DishTypeListView,
                            DishTypeCreateView,
+                           DishTypeUpdateView,
+                           DishTypeDeleteView,
                            DishListView,
                            DishDetailView,
                            CookListView,
                            CookDetailView,
                            CookCreateView)
-
-
 
 
 urlpatterns = [
@@ -23,6 +23,16 @@ urlpatterns = [
         "dish-types/create/",
         DishTypeCreateView.as_view(),
         name="dish-type-create"
+    ),
+    path(
+        "dish-types/<int:pk>/update/",
+        DishTypeUpdateView.as_view(),
+        name="dish-type-update"
+    ),
+    path(
+        "dish-types/<int:pk>/delete/",
+        DishTypeDeleteView.as_view(),
+        name="dish-type-delete"
     ),
     path(
         "dishes/",
