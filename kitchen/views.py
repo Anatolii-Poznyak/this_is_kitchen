@@ -84,9 +84,9 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
 
-        title = self.request.GET.get("title", "")
+        name = self.request.GET.get("title", "")
         context["search_form"] = SearchForm(initial={
-            "title": title
+            "title": name
         })
         return context
 
@@ -127,6 +127,27 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+
+        name = self.request.GET.get("title", "")
+        context["search_form"] = SearchForm(initial={
+            "title": name
+        })
+        return context
+
+    def get_queryset(self):
+        queryset = Cook.objects.all()
+
+        form = SearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                username__icontains=form.cleaned_data["title"]
+            )
+
+        return queryset
 
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
