@@ -2,8 +2,14 @@ from django.urls import path
 
 from kitchen.views import (index,
                            DishTypeListView,
+                           DishTypeCreateView,
                            DishListView,
-                           DishDetailView, CookListView, CookDetailView, CookCreateView)
+                           DishDetailView,
+                           CookListView,
+                           CookDetailView,
+                           CookCreateView)
+
+
 
 
 urlpatterns = [
@@ -12,6 +18,11 @@ urlpatterns = [
         "dish-types/",
         DishTypeListView.as_view(),
         name="dish-type-list"
+    ),
+    path(
+        "dish-types/create/",
+        DishTypeCreateView.as_view(),
+        name="dish-type-create"
     ),
     path(
         "dishes/",

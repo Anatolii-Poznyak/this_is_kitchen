@@ -34,6 +34,13 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-type-list")
+    template_name = "kitchen/dish_type_form.html"
+
+
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 5
@@ -56,3 +63,5 @@ class CookCreateView(generic.CreateView):
     form_class = CookForm
     success_url = reverse_lazy("kitchen:cook-list")
     template_name = "kitchen/cook_form.html"
+
+
