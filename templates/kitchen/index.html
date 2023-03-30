@@ -2,11 +2,16 @@
 
 {% block content %}
   <h1>Kitchen Home Page</h1>
-  <h3>My content:</h3>
-   <ul>
-     <li>Cooks: {{ num_cooks }}</li>
-     <li>Dish types: {{ num_dish_types }}</li>
-     <li>Dishes: {{ num_dishes }}</li>
-   </ul>
-  <p>You have visited this page: {{ num_visits }} time{{ num_visits|pluralize }}</p>
+  <p>Welcome to Best Kitchen Service!</p>
+  <p>The Kitchen service has the following record counts:</p>
+  <ul>
+    <li><strong>Cooks: </strong> {{ num_cooks }}</li>
+    <li><strong>Dish types: </strong> {{ num_dish_types }}</li>
+    <li><strong>Dishes: :</strong> {{ num_dishes }}</li>
+  </ul>
+
+  <p>You have visited this page
+      {{ num_visits }} time{{ num_visits|pluralize }}.
+  </p>
+
 {% endblock %}

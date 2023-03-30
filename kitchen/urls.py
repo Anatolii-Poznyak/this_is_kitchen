@@ -49,17 +49,17 @@ urlpatterns = [
     ),
     path(
         "dishes/create/",
-        DishCreateView.as_view,
+        DishCreateView.as_view(),
         name="dish-create"
     ),
     path(
         "dishes/<int:pk>/update/",
-        DishUpdateView.as_view,
+        DishUpdateView.as_view(),
         name="dish-update"
     ),
     path(
         "dishes/<int:pk>/delete/",
-        DishDeleteView.as_view,
+        DishDeleteView.as_view(),
         name="dish-delete"
     ),
     path(
