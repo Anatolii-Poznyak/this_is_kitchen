@@ -51,7 +51,7 @@ class DishForm(forms.ModelForm):
         fields = "__all__"
 
 
-class DishSearchForm(forms.Form):
+class SearchForm(forms.Form):
     title = forms.CharField(
         max_length=63,
         required=False,

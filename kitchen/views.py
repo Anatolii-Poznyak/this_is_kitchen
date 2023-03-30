@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import DishForm, CookCreationForm, DishSearchForm
+from kitchen.forms import DishForm, CookCreationForm, SearchForm, CookUpdateForm
 from kitchen.models import Dish, Cook, DishType
 
 
@@ -32,6 +33,27 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+
+        title = self.request.GET.get("title", "")
+        context["search_form"] = SearchForm(initial={
+            "title": title
+        })
+        return context
+
+    def get_queryset(self):
+        queryset = Dish.objects.select_related("dish_type")
+
+        form = SearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["title"]
+            )
+
+        return queryset
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
@@ -63,7 +85,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         context = super().get_context_data()
 
         title = self.request.GET.get("title", "")
-        context["search_form"] = DishSearchForm(initial={
+        context["search_form"] = SearchForm(initial={
             "title": title
         })
         return context
@@ -71,7 +93,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         queryset = Dish.objects.select_related("dish_type")
 
-        form = DishSearchForm(self.request.GET)
+        form = SearchForm(self.request.GET)
 
         if form.is_valid():
             return queryset.filter(
@@ -115,3 +137,26 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     form_class = CookCreationForm
+
+
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    form_class = CookUpdateForm
+    success_url = reverse_lazy("taxi:driver-list")
+
+
+class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Cook
+    success_url = reverse_lazy("")
+
+
+@login_required
+def toggle_assign_to_dish(request, pk):
+    cook = Cook.objects.get(id=request.user.id)
+    if (
+        Dish.objects.get(id=pk) in cook.dishes.all()
+    ):
+        cook.dishes.remove(pk)
+    else:
+        cook.dishes.add(pk)
+    return HttpResponseRedirect(reverse_lazy("kitchen:dish-detail", args=[pk]))
