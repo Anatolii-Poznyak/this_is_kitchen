@@ -19,7 +19,10 @@
   {{ form|crispy}}
 
   <input type="submit" value="Login" class="btn btn-primary" />
-  <input type="hidden" name="next" value="{{ next }}" />
+  {% if not user %}
+    <input type="hidden" name="next" value="{{ next }}" />
+  {% endif %}
+
 </form>
 
 {% endblock %}
