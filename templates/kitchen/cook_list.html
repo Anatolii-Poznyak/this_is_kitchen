@@ -21,7 +21,9 @@
         <th>Username</th>
         <th>First name</th>
         <th>Last name</th>
+        <th>Email</th>
         <th>Years of experience</th>
+        <th>Last activity</th>
       </tr>
     {% for cook in cook_list %}
       <tr>
@@ -30,6 +32,8 @@
         <td>{{ cook.first_name }}</td>
         <td>{{ cook.last_name }}</td>
         <td>{{ cook.years_of_experience|default_if_none:"" }}</td>
+        <td>{{ cook.email }}</td>
+        <td>{{ cook.last_login|default_if_none:"" }}</td>
       </tr>
     {% endfor %}
 
