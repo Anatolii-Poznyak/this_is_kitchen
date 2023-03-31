@@ -12,7 +12,6 @@ class CookCreationForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
-            "email",
             "years_of_experience"
         )
 
@@ -37,6 +36,7 @@ class CookUpdateForm(forms.ModelForm):
 def validate_years_of_experience(years_of_experience):
     if years_of_experience < 0 or years_of_experience > 100:
         raise ValidationError("Please, enter a valid number")
+    return years_of_experience
 
 
 class DishForm(forms.ModelForm):
