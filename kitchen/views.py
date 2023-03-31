@@ -33,6 +33,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
     paginate_by = 5
+    queryset = DishType.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
@@ -44,16 +45,15 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
-        queryset = Dish.objects.select_related("dish_type")
 
         form = SearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(
+            return self.queryset.filter(
                 name__icontains=form.cleaned_data["title"]
             )
 
-        return queryset
+        return self.queryset
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
@@ -168,7 +168,7 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
-    success_url = reverse_lazy("")
+    success_url = reverse_lazy("kitchen:cook-list")
 
 
 @login_required
