@@ -420,9 +420,6 @@ textarea#id_description {
 }
 
 
-/* +++++++++++++++++++++++++++++++================================= */
-
-
 .col-md-4 {
   text-align: center;
   padding-bottom: 50px;
@@ -454,4 +451,3 @@ i {
     border-bottom: 0px dashed black;
   }
 }
-
