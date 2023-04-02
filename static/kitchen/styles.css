@@ -349,16 +349,8 @@ h1 {
 .btn:hover{
   background-color: #da899f;
 }
-#create {
-  position: absolute;
-  right: 30%;
-  top: 1.5%;
-  width: 15vh;
-  height: 13vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+.btn-danger {
+  color: white;
 }
 #searchform {
   margin-bottom: 20px;
@@ -380,4 +372,49 @@ h1 {
 textarea#id_description {
     height: 100px; /* Встановіть висоту, яка вам потрібна */
     width: 100%; /* Встановіть ширину, яка вам потрібна */
+}
+
+#create {
+  position: absolute;
+  right: 30%;
+  margin-top: 7px;
+  width: 15vh;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#delete {
+  position: absolute;
+  right: 30%;
+  margin-top: 22vh;
+  width: 15vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#update {
+  position: absolute;
+  right: 30%;
+  margin-top: 14vh;
+  width: 15vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#assign {
+  position: absolute;
+  right: 30%;
+  margin-top: 30vh;
+  width: 15vh;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
