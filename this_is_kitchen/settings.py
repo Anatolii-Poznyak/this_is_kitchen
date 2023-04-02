@@ -30,8 +30,8 @@ SECRET_KEY = "i2fp-50!iztga^c0w*zjcep(p@g=)fpqpd45sk2dt9dfgl!dv3"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-# ALLOWED_HOSTS = ["127.0.0.1", "this-is-kitchen.onrender.com"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "this-is-kitchen.onrender.com"]
+# ALLOWED_HOSTS = ["*"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
