@@ -5,10 +5,11 @@
     {{ dish.name }}
   </h1>
   <p>Dish type: {{ dish.dish_type.name }}</p>
-  <h1>
+  <hr>
+  <h3>
     Cooks
 
-  </h1>
+  </h3>
   <hr>
   <ul>
     {% for cook in dish.cooks.all %}

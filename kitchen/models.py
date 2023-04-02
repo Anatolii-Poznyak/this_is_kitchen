@@ -44,7 +44,6 @@ class Dish(models.Model):
         blank=True
     )
 
-
     class Meta:
         ordering = ["name"]
         verbose_name = "dish"
