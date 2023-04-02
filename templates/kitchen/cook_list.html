@@ -6,12 +6,12 @@
 {% block content %}
     <h1>
       Cook List
-    <a style="float:right" class="btn btn-outline-primary"  href="{% url 'kitchen:cook-create' %}">Create</a>
+
     </h1>
 
-    <form action="" method="get">
+    <form  action="" method="get">
       {{ search_form|crispy }}
-     <input type="submit" value="Search" class="btn btn-outline-primary">
+     <input id="searchform" type="submit" value="Search" class="btn btn-outline-primary" >
     </form>
 
     {% if cook_list %}
@@ -21,8 +21,8 @@
         <th>Username</th>
         <th>First name</th>
         <th>Last name</th>
-        <th>Email</th>
         <th>Years of experience</th>
+        <th>Email</th>
         <th>Last activity</th>
       </tr>
     {% for cook in cook_list %}
@@ -41,4 +41,11 @@
     {% else %}
       <p>There are no cook in the service yet!</p>
     {% endif %}
+{% endblock %}
+{% block sidebar %}
+  {% include "includes/sidebar.html" %}
+
+{% endblock %}
+{% block create_button %}
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:cook-create' %}">Create</a>
 {% endblock %}

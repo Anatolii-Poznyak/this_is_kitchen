@@ -3,13 +3,12 @@
 
 {% block content %}
   <h1>
-    Dish Type List
-  <a style="float:right" class="btn btn-outline-primary" href="{% url 'kitchen:dish-type-create' %}">Create</a>
+    Dish Types
   </h1>
 
   <form action="" method="get">
       {{ search_form|crispy }}
-     <input type="submit" value="Search" class="btn btn-outline-primary">
+     <input id="searchform" type="submit" value="Search" class="btn btn-outline-primary">
   </form>
 
   {% if dish_type_list %}
@@ -47,4 +46,7 @@
   {% else %}
       <p>There are no dish types in the service.</p>
   {% endif %}
+{% endblock %}
+{% block create_button %}
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:cook-create' %}">Create</a>
 {% endblock %}

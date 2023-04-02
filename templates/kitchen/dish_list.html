@@ -4,9 +4,6 @@
 {% block content %}
   <h1>
     Dish list
-    <a style="float:right" href="{% url 'kitchen:dish-create' %}" class="btn btn-outline-primary link-to-page">
-      Create
-    </a>
   </h1>
 
   <form action="" method="get">
@@ -45,4 +42,7 @@
   {% else %}
     <p>There are no dishes yet!</p>
   {% endif %}
+{% endblock %}
+{% block create_button %}
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:dish-create' %}">Create</a>
 {% endblock %}
