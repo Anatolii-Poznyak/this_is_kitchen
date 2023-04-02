@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
-
+{% block title %}<title>{{ object|yesno:"Update,Create" }} | This Kitchen</title>{% endblock %}
 {% block content %}
   <h1>{{ object|yesno:"Update,Create" }} dish</h1>
   <form action="" method="post" novalidate>

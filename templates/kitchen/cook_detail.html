@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}<title>Info | This is Kitchen</title>{% endblock %}
 {% block content %}
   <h1>
     Username: {{ cook.username }}
@@ -48,5 +48,5 @@
     <a  href="{% url 'kitchen:cook-update' pk=cook.id %}" id="update" class="btn btn-outline-primary link-to-page">
       Update
     </a>
-  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:dish-create' %}">Create</a>
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:cook-create' %}">Create</a>
 {% endblock %}
