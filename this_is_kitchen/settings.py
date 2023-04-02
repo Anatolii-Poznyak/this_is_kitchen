@@ -22,12 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+
+# SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+
+SECRET_KEY = "i2fp-50!iztga^c0w*zjcep(p@g=)fpqpd45sk2dt9dfgl!dv3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1", "https://this-is-kitchen.onrender.com"]
+# ALLOWED_HOSTS = ["127.0.0.1", "this-is-kitchen.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -65,8 +69,7 @@ ROOT_URLCONF = "this_is_kitchen.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
