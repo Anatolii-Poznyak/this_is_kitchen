@@ -1,0 +1,47 @@
+{% block footer %}
+     <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+            Just footer
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick</h6>
+            <ul class="footer-links">
+              <li><a href="{% url 'kitchen:index' %}">Home</a></li>
+              <li><a href="{% url 'kitchen:cook-list' %}">Cooks</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Links</h6>
+            <ul class="footer-links">
+              <li><a href="{% url 'kitchen:dish-list' %}">Dishes</a></li>
+              <li><a href="{% url 'kitchen:dish-type-list' %}">Dish types</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Some Copyright &copy; information
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="youtube" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fab fa-youtube"></i></a></li>
+              <li><a class="telegram" href="https://t.me/Anatolii_pozniak"><i class="fab fa-telegram"></i></a></li>
+              <li><a class="google" href="https://www.google.com/"><i class="fab fa-google"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+{% endblock %}
