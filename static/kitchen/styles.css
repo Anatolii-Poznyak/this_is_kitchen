@@ -41,6 +41,7 @@ h1 {
   border-radius: 10px;
 }
 
+
 .listy {
   padding-left: 20px
 }
@@ -325,3 +326,8 @@ h1 {
   }
 }
 
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #ff0000;
+}
