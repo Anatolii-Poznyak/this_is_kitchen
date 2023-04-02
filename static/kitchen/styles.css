@@ -35,6 +35,7 @@ section {
   display: flex;
   justify-content: center;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h1 {
@@ -374,4 +375,9 @@ h1 {
   color: #000000;
   border-color: #000000;
 
+}
+
+textarea#id_description {
+    height: 100px; /* Встановіть висоту, яка вам потрібна */
+    width: 100%; /* Встановіть ширину, яка вам потрібна */
 }
