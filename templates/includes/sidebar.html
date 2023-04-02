@@ -1,15 +1,53 @@
-<ul class="sidebar-nav">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+{#<ul class="sidebar-nav">#}
+{#  {% if user.is_authenticated %}#}
+{#    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>#}
+{#    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>#}
+{#  {% else %}#}
+{#    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>#}
+{#  {% endif %}#}
+{##}
+{#  <br>#}
+{##}
+{#  <li><a class="list-group-item" href="{% url 'kitchen:index' %}">Home</a></li>#}
+{#  <li><a class="list-group-item" href="{% url 'kitchen:cook-list' %}">Cooks</a></li>#}
+{#  <li><a class="list-group-item" href="{% url 'kitchen:dish-list' %}">Dishes</a></li>#}
+{#  <li><a class="list-group-item" href="{% url 'kitchen:dish-type-list' %}">Dish Types</a></li>#}
+{#</ul>#}
+<nav role="navigation">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
 
-  <br>
+    <!--
+    Some spans to act as a hamburger.
 
-  <li><a class="list-group-item" href="{% url 'kitchen:index' %}">Home</a></li>
-  <li><a class="list-group-item" href="{% url 'kitchen:cook-list' %}">Cooks</a></li>
-  <li><a class="list-group-item" href="{% url 'kitchen:dish-list' %}">Dishes</a></li>
-  <li><a class="list-group-item" href="{% url 'kitchen:dish-type-list' %}">Dish Types</a></li>
-</ul>
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      {#<ul class="sidebar-nav">#}
+      {% if user.is_authenticated %}
+        User: <a href="{{ user.get_absolute_url }}"><li>{{ user.get_username }}</li></a>
+        <a href="{% url 'logout'%}?next={{request.path}}"><li>Logout</li></a>
+      {% else %}
+        <a href="{% url 'login'%}?next={{request.path}}"><li>Login</li></a>
+      {% endif %}
+      <a href="{% url 'kitchen:index' %}"><li>Home</li></a>
+      <a href="{% url 'kitchen:cook-list' %}"><li>Cooks</li></a>
+      <a href="{% url 'kitchen:dish-list' %}"><li>Dishes</li></a>
+      <a href="{% url 'kitchen:dish-type-list' %}"><li>Dish Types</li></a>
+
+    </ul>
+  </div>
+</nav>
