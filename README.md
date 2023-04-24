@@ -4,9 +4,12 @@ The most important aspect of a professional kitchen is discipline.
 This Django project is designed to optimize the functioning 
 of this complex mechanism, facilitating communication between chefs and management.
 
-## Project deployed  to Render: https://this-is-kitchen.onrender.com
+## Project deployed  to Render: 
+[This is kitchen website](https://this-is-kitchen.onrender.com)
 
-### For testing: {Login: BillyJ} {Password: 1qazcde3}
+### For testing: 
+login: `BillyJ`
+password: `1qazcde3`
 
 ## Installation
 
@@ -16,7 +19,8 @@ Requirement : Python 3
 git clone https://github.com/Anatolii-Poznyak/this_is_kitchen 
 cd this_is_kitchen
 python3 -m venv venv
-source venv/bin/activate
+venv\Scripts\activate (on Windows)
+source venv/bin/activate (on macOS)
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver # Starts Django Server
@@ -29,4 +33,4 @@ python manage.py runserver # Starts Django Server
 * Access to all manage systems from the web
 * Nice and bright
 
-#demo ![demo.png](demo.png)
+# demo ![demo.png](demo.png)
