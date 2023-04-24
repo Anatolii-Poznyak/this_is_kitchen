@@ -1,4 +1,4 @@
-# This_is_kitchen
+# This is kitchen
 
 The most important aspect of a professional kitchen is discipline. 
 This Django project is designed to optimize the functioning 
