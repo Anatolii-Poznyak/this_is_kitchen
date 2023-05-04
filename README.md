@@ -49,4 +49,7 @@ password: `1qazcde3`
 * Access to all manage systems from the web
 * Nice and bright 🥳
 
+### 🗄 DB Structure
+![db_structure.png](db_structure.png)
+
 ### 📺 Demo ![demo.png](demo.png)
