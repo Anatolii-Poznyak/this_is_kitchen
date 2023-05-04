@@ -27,7 +27,7 @@ password: `1qazcde3`
   export SECRET_KEY=<your_secret_key>
   export DJANGO_DEBUG=True
 ```
-- or set DEBUG and SECRET_KEY right in settings.py (bad practice btw) 
+- or set DEBUG and SECRET_KEY right in settings.py (bad practice btw 😀️️) 
 ### 🖥 Windows:
 ```shell
   venv\Scripts\activate
@@ -47,6 +47,6 @@ password: `1qazcde3`
 * Admin panel, easy to customize
 * Firm Django Authentication functions
 * Access to all manage systems from the web
-* Nice and bright
+* Nice and bright 🥳
 
 ### 📺 Demo ![demo.png](demo.png)
