@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block title %}<title>Cooks | This is Kitchen</title>{% endblock %}
+
+
+{% block content %}
+    <h1>
+      Cook List
+
+    </h1>
+
+    <form  action="" method="get">
+      {{ search_form|crispy }}
+     <input id="searchform" type="submit" value="Search" class="btn btn-outline-primary" >
+    </form>
+
+    {% if cook_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Years of experience</th>
+        <th>Email</th>
+        <th>Last activity</th>
+      </tr>
+    {% for cook in cook_list %}
+      <tr>
+        <td>{{ cook.id }}</td>
+        <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+        <td>{{ cook.years_of_experience|default_if_none:"" }}</td>
+        <td>{{ cook.email }}</td>
+        <td>{{ cook.last_login|default_if_none:"" }}</td>
+      </tr>
+    {% endfor %}
+
+    </table>
+    {% else %}
+      <p>There are no cook in the service yet!</p>
+    {% endif %}
+{% endblock %}
+{% block sidebar %}
+  {% include "includes/sidebar.html" %}
+
+{% endblock %}
+{% block create_button %}
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:cook-create' %}">Create</a>
+{% endblock %}

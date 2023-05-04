@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}<title>Info | This is Kitchen</title>{% endblock %}
+{% block content %}
+  <h1>
+    {{ dish.name }}
+  </h1>
+  <p>Dish type: {{ dish.dish_type.name }}</p>
+  <hr>
+  <h3>
+    Cooks
+
+  </h3>
+  <hr>
+  <ul>
+    {% for cook in dish.cooks.all %}
+     <li><a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }}){% if user == cook %} (Me){% endif %}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+{% block create_button %}
+  <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" id="delete" class="btn btn-outline-danger link-to-page">
+      Delete
+    </a>
+
+    <a  href="{% url 'kitchen:dish-update' pk=dish.id %}" id="update" class="btn btn-outline-primary link-to-page">
+      Update
+    </a>
+  <a class="btn btn-outline-primary" id="create" href="{% url 'kitchen:dish-create' %}">Create</a>
+  {% if dish in user.dishes.all %}
+      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" id="assign" class="btn btn-danger link-to-page">
+        Delete me from this dish
+      </a>
+    {% else %}
+      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" id="assign" class="btn btn-success link-to-page">
+        Assign me to this dish
+      </a>
+    {% endif %}
+{% endblock %}

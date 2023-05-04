@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block title %}<title>{{ object|yesno:"Update,Create" }} | This Kitchen</title>{% endblock %}
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Cook</h1>
+  <form action="" method="post" novalidate>
+  {% csrf_token %}
+  {{ form|crispy }}
+
+    <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-outline-primary">
+  <a href="javascript:history.back()" class="btn btn-outline-dark">Cancel</a>
+  </form>
+{% endblock %}

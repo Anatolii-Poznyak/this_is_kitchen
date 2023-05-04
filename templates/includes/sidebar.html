@@ -1,0 +1,23 @@
+<nav role="navigation">
+  <div id="menuToggle">
+
+    <input type="checkbox" />
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <ul id="menu">
+      {% if user.is_authenticated %}
+        User: <a href="{{ user.get_absolute_url }}"><li>{{ user.get_username }}</li></a>
+        <a href="{% url 'logout'%}?next={{request.path}}"><li>Logout</li></a>
+      {% else %}
+        <a href="{% url 'login'%}?next={{request.path}}"><li>Login</li></a>
+      {% endif %}
+      <a href="{% url 'kitchen:index' %}"><li>Home</li></a>
+      <a href="{% url 'kitchen:cook-list' %}"><li>Cooks</li></a>
+      <a href="{% url 'kitchen:dish-list' %}"><li>Dishes</li></a>
+      <a href="{% url 'kitchen:dish-type-list' %}"><li>Dish Types</li></a>
+    </ul>
+  </div>
+</nav>
