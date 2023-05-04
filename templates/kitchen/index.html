@@ -9,17 +9,17 @@
   <div class="row">
     <div class="col-md-4" >
       <h1><span class="counter">{{ num_cooks }}</span></h1>
-      <h3>Cooks</h3>
+      <h3><a class="home-links" href="{% url 'kitchen:cook-list' %}">Cooks</a></h3>
       <i class="fa fa-users"></i>
     </div>
     <div class="col-md-4">
       <h1><span class="counter">{{ num_dishes }}</span></h1>
-      <h3>Total Number of Dishes</h3>
+      <h3><a class="home-links" href="{% url 'kitchen:dish-list' %}">Total Number of Dishes</a></h3>
       <i class="far fa-hamburger"></i>
     </div>
     <div class="col-md-4">
       <h1><span class="counter">{{ num_dish_types }}</span></h1>
-      <h3>Dish Types</h3>
+      <h3><a class="home-links" href="{% url 'kitchen:dish-type-list' %}">Dish Types</a></h3>
       <h3></h3>
       <i class="fas fa-bacon"></i>
     </div>
