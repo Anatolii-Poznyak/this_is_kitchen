@@ -4,8 +4,6 @@ The most important aspect of a professional kitchen is discipline.
 This Django project is designed to optimize the functioning 
 of this complex mechanism, facilitating communication between chefs and management.
 
-### 🌐 Project deployed  to Render: 
-### [This is kitchen website](https://this-is-kitchen.onrender.com)
 
 ### 🗝 For testing:
 login:`BillyJ`
